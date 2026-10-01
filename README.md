@@ -13,3 +13,7 @@ A small showcase of three motion pieces, each self-contained and dependency ligh
 ```bash
 npm i && npm run dev
 ```
+
+## License
+
+MIT, see [LICENSE](LICENSE). The arm textures in `public/hero/ascii/` are cut from Michelangelo's *Creation of Adam*, which is in the public domain.

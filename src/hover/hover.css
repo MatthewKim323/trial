@@ -1,0 +1,373 @@
+/*
+ * Hover set styles. Everything is in rem, tuned on a root font size of
+ * clamp(14px, 1vw, 38px); set that on html for the intended scale.
+ *
+ * Fonts are yours: --hk-sans for labels, --hk-serif for the nav roll's
+ * italic. Defaults point at free families (Inter Tight, Instrument Serif)
+ * with system fallbacks.
+ */
+:root {
+  --hk-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --hk-serif: "Instrument Serif", Georgia, serif;
+  --hk-ink: #212121;
+  --hk-paper: #fff;
+}
+
+/* ---------- pill button ---------- */
+
+.hk-pill {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--hk-sans);
+  padding: 0;
+  position: relative;
+  text-decoration: none;
+}
+.hk-pill * {
+  pointer-events: none;
+}
+.hk-pill:focus {
+  outline: none;
+}
+.hk-pill:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+  border-radius: 1.5rem;
+}
+.hk-pill__svg {
+  height: 100%;
+  left: 0;
+  overflow: visible;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
+.hk-pill__shape {
+  height: calc(100% - 2.5px);
+  width: calc(100% - 2.5px);
+  stroke-width: 2;
+}
+.hk-pill__bg {
+  fill: var(--hk-bg);
+  stroke: var(--hk-bg);
+}
+.hk-pill__fill {
+  fill: var(--hk-hover-fill);
+  stroke: var(--hk-hover-fill);
+}
+.hk-pill__border {
+  fill: none;
+  stroke: var(--hk-border);
+}
+.hk-pill__border-hover {
+  fill: none;
+  stroke: var(--hk-hover-border);
+}
+.hk-pill__wipe {
+  transform: translateY(120%);
+  transform-box: fill-box;
+}
+.hk-pill__strip {
+  transform-box: fill-box;
+  transform: scale(0, 0);
+}
+.hk-pill__strip--right {
+  transform-origin: 0 0;
+}
+.hk-pill__strip--bottom {
+  transform-origin: 100% 0;
+}
+.hk-pill__strip--left {
+  transform-origin: 0 100%;
+}
+.hk-pill__inner {
+  border-radius: 1.5rem;
+  display: block;
+  margin: 2px 0 3px;
+  overflow-y: hidden;
+  padding: calc(0.8rem - 2px) 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+.hk-pill__content {
+  display: block;
+  line-height: 0.9rem; /* fixes the pill height regardless of the host page */
+}
+.hk-pill__content--hover {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateY(-120%);
+}
+.hk-pill__content--hover .hk-pill__icon {
+  transform: translateX(-1.8rem);
+}
+.hk-pill__text {
+  color: var(--hk-text);
+  font-size: 1.05rem;
+  line-height: 0.9rem;
+}
+.hk-pill__content--hover .hk-pill__text {
+  color: var(--hk-hover-text);
+}
+.hk-pill__icon {
+  display: inline-block;
+  height: 0.67rem;
+  margin-left: 0.55rem;
+  width: 0.57rem;
+}
+.hk-pill__icon svg {
+  display: block;
+  fill: var(--hk-text);
+  height: 100%;
+  width: 100%;
+}
+.hk-pill__content--hover .hk-pill__icon svg {
+  fill: var(--hk-hover-text);
+}
+.hk-pill--fill.hk-pill--light {
+  --hk-text: var(--hk-ink);
+  --hk-hover-text: var(--hk-paper);
+  --hk-hover-fill: var(--hk-ink);
+  --hk-border: var(--hk-paper);
+  --hk-bg: var(--hk-paper);
+}
+.hk-pill--fill.hk-pill--dark {
+  --hk-text: var(--hk-paper);
+  --hk-hover-text: var(--hk-ink);
+  --hk-hover-fill: var(--hk-paper);
+  --hk-border: var(--hk-ink);
+  --hk-bg: var(--hk-ink);
+}
+.hk-pill--border.hk-pill--light {
+  --hk-text: var(--hk-paper);
+  --hk-hover-text: var(--hk-ink);
+  --hk-hover-fill: transparent;
+  --hk-border: var(--hk-paper);
+  --hk-hover-border: var(--hk-ink);
+  --hk-bg: transparent;
+}
+.hk-pill--border.hk-pill--dark {
+  --hk-text: var(--hk-ink);
+  --hk-hover-text: var(--hk-paper);
+  --hk-hover-fill: var(--hk-paper);
+  --hk-border: var(--hk-ink);
+  --hk-hover-border: var(--hk-paper);
+  --hk-bg: transparent;
+}
+
+/* ---------- circle button ---------- */
+
+.hk-circle {
+  align-items: center;
+  appearance: none;
+  background: transparent;
+  border: 0;
+  border-radius: 50%;
+  color: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  height: 3.7rem;
+  justify-content: center;
+  padding: 0;
+  position: relative;
+  width: 3.7rem;
+}
+.hk-circle * {
+  pointer-events: none;
+}
+.hk-circle__disc {
+  background-color: var(--hk-paper);
+  border-radius: 100%;
+  height: 2.7rem;
+  position: absolute;
+  width: 2.7rem;
+}
+.hk-circle__inner {
+  align-items: center;
+  border-radius: 1.65rem;
+  display: flex;
+  height: 2.7rem;
+  justify-content: center;
+  position: relative;
+  width: 2.7rem;
+}
+.hk-circle__icon {
+  display: flex;
+  color: var(--hk-ink);
+}
+
+/* ---------- roll link (nav) ---------- */
+
+.hk-roll {
+  color: var(--hk-ink);
+  display: block;
+  font-family: var(--hk-sans);
+  overflow: hidden;
+  padding: 0.15rem 0.75rem;
+  text-decoration: none;
+  transition: color 0.5s ease-out;
+  user-select: none;
+}
+.hk-roll * {
+  pointer-events: none;
+}
+.hk-roll__wrap {
+  position: relative;
+}
+.hk-roll__text {
+  font-size: 1.2rem;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.hk-roll__text--hover {
+  font-family: var(--hk-serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  left: 0;
+  line-height: 0.9;
+  position: absolute;
+  top: 0;
+}
+.hk-roll__char {
+  display: inline-block;
+  position: relative;
+  white-space: pre;
+}
+.hk-roll__text--hover .hk-roll__char {
+  transform: translateY(150%);
+}
+
+/* ---------- arrow link ---------- */
+
+.hk-arrow {
+  color: inherit;
+  text-decoration: none;
+}
+.hk-arrow * {
+  pointer-events: none;
+}
+.hk-arrow > span {
+  display: inline-block;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hk-arrow > span > span {
+  display: inline-block;
+  overflow: hidden;
+  position: absolute;
+  transform: translateX(-100%);
+}
+.hk-arrow > span > span > span {
+  display: inline-block;
+  transform: translateX(100%);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  width: 0.75rem;
+}
+.hk-arrow:hover > span,
+.hk-arrow:focus-visible > span {
+  transform: translateX(0.75rem);
+}
+.hk-arrow:hover > span > span > span,
+.hk-arrow:focus-visible > span > span > span {
+  transform: translateX(0);
+}
+.hk-arrow--large:hover > span,
+.hk-arrow--large:focus-visible > span {
+  transform: translateX(1.25rem);
+}
+.hk-arrow--large > span > span > span {
+  width: 1.25rem;
+}
+
+/* ---------- split underline (quiet text button) ---------- */
+
+.hk-split {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: var(--hk-ink);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--hk-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  overflow: hidden;
+  padding: 0 0 0.1rem;
+  position: relative;
+  text-transform: uppercase;
+}
+.hk-split__line {
+  background: currentColor;
+  bottom: 0;
+  display: block;
+  height: 1px;
+  position: absolute;
+  transition: transform 0.2s ease-out;
+  width: 50%;
+}
+.hk-split__line:first-of-type {
+  left: 0;
+}
+.hk-split__line:last-of-type {
+  right: 0;
+}
+.hk-split:hover .hk-split__line:first-of-type,
+.hk-split:focus-visible .hk-split__line:first-of-type {
+  transform: translateX(-101%);
+}
+.hk-split:hover .hk-split__line:last-of-type,
+.hk-split:focus-visible .hk-split__line:last-of-type {
+  transform: translateX(101%);
+}
+
+/* ---------- ring cursor ---------- */
+
+.hk-cursor-off,
+.hk-cursor-off * {
+  cursor: none !important;
+}
+.hk-cursor {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  z-index: 11000;
+}
+.hk-cursor__wrap {
+  transform-origin: top left;
+}
+.hk-cursor__inner {
+  height: 7rem;
+  position: relative;
+  transform: translate(-50%, -50%);
+  width: 7rem;
+}
+.hk-cursor__ring {
+  border: 1.5px solid var(--hk-ink);
+  border-radius: 1.2rem;
+  bottom: 0;
+  box-sizing: border-box;
+  height: 2.2rem;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 2.2rem;
+}
+.hk-cursor--light .hk-cursor__ring {
+  border-color: var(--hk-paper);
+}

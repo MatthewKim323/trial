@@ -94,3 +94,17 @@ body {
   color: #aaa;
   text-align: center;
 }
+
+/* the hover set is sized in rem for this root scale */
+html {
+  font-size: clamp(14px, 1vw, 38px);
+}
+.hover-page {
+  position: fixed;
+  inset: 0;
+  overflow-y: auto;
+  padding-top: 64px;
+  background: #f2ece9;
+  color: #212121;
+  color-scheme: light;
+}
